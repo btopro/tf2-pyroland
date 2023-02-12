@@ -7,27 +7,28 @@ export class MyCard extends LitElement {
     return {
       title: { type: String },
 //<------------JS-CUTOFF---------------------------------------------------------------------------------------------------------> 
-      document.querySelector('#Duplicate').addEventListener('click', function() {
+/*
+      this.shadowRoot.querySelector('#Duplicate').addEventListener('click', function() {
         const node1 = document.getElementById("card1");
         let node2 = node1.cloneNode(true);                             
         document.body.appendChild(node2);         
       });
        
-      document.querySelector('#Color').addEventListener('click', function() {
+      this.shadowRoot.querySelector('#Color').addEventListener('click', function() {
         if (document.getElementById("card1").className == "card")
           document.getElementById("card1").className = "alt";
         else
           document.getElementById("card1").className = "card";
       });
       
-      document.querySelector('#Header').onclick = function() {
+      this.shadowRoot.querySelector('#Header').onclick = function() {
         if (document.getElementById('header1').innerHTML == 'Team Fortress 2 Pyroland')
           document.getElementById('header1').innerHTML = 'Sussy amogus';
         else
           document.getElementById('header1').innerHTML = 'Team Fortress 2 Pyroland';
       };
       
-      document.querySelector('#Delete').addEventListener('click', function() {
+      this.shadowRoot.querySelector('#Delete').addEventListener('click', function() {
         const list1 = [];
         var onetime = false;
         document.querySelectorAll('.card').forEach((item, index) => {
@@ -40,7 +41,7 @@ export class MyCard extends LitElement {
       });
       
       
-      document.querySelector('#Details').addEventListener('click', function() {
+      this.shadowRoot.querySelector('#Details').addEventListener('click', function() {
         if (document.getElementById('bod1').style.visibility == 'hidden') 
         {
           document.getElementById('bod1').style.visibility = 'visible';
@@ -52,6 +53,7 @@ export class MyCard extends LitElement {
           document.getElementById('bod2').style.visibility = 'hidden'; 
           }
       });
+*/
     //<------------JS-CUTOFF---------------------------------------------------------------------------------------------------------> 
     };
   }
