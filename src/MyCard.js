@@ -38,8 +38,6 @@ static get styles() {
   margin: auto;
 }
 
-
-
 /*BELOW IS ALL ORIGINAL CARD SPACE*/
 
 .card {
