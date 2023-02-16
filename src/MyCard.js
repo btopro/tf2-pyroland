@@ -38,20 +38,7 @@ static get styles() {
   margin: auto;
 }
 
-.topbuttons {
-  display: block;
-  text-align: center;
-}
 
-button {
-  font-size: 24px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  background-color: #94FEFB;
-  font-family: "Monaco", Monospace;
-  border: 4px solid pink;
-  border-radius: 20px;
-}
 
 /*BELOW IS ALL ORIGINAL CARD SPACE*/
 
@@ -86,18 +73,7 @@ button {
   border-radius: 20px;
 }
 
-.summary:hover,
-.summary:focus,
-.topbuttons button:hover,
-.topbuttons button:focus {
-  color: hotpink;
-  background-color: #94FEFB;
-}
-.summary:active,
-.topbuttons button:active {
-  color: #94FEFB;
-  background-color: #ec72fc
-}
+
 
 @media screen and (max-width: 800px) and (min-width: 500px) {
   .details {
@@ -136,12 +112,6 @@ button {
     return html`
 <div class='wrapper'>
 <!-- Allen's buttons-->
-  <div class="topbuttons">
-    <button class="Duplicate">New duplicate</button>
-    <button id="Color">Toggle color</button>
-    <button id="Header">Change heading</button>
-    <button id="Delete">Delete 1 card</button>
-  </div>
 <!-- Allen's Card-->
   <div id="card1" class="card">
     <p id="header1" class="header">Team Fortress 2 Pyroland</p>
