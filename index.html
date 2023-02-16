@@ -23,6 +23,49 @@
   <my-card></my-card>
 
   <script type="module" src="./src/my-card.js"></script>
+<!-----------------------------------JS-CUTOFF-------------------------------------------------------------------------------------------->
+  <script> 
+
+  //document.querySelector('my-card').shadowRoot.querySelector
+
+  //New duplicate button 
+document.querySelector('.Duplicate').addEventListener('click', function(e) {
+  const node1 = document.querySelector('.card').cloneNode(true);
+  document.body.appendChild(node1);
+});
+
+//Color toggle button
+document.querySelector('my-card').shadowRoot.querySelector('#Color').addEventListener('click', function() {
+  document.querySelector('my-card').shadowRoot.getElementById("card1").className = "alt";
+  if (document.querySelector('my-card').shadowRoot.getElementById("card1").className == "card")
+    document.querySelector('my-card').shadowRoot.getElementById("card1").className = "alt";
+  else
+    document.querySelector('my-card').shadowRoot.getElementById("card1").className = "card";
+});
+
+//Header toggle button
+document.querySelector('#Header').onclick = function() {
+  if (document.querySelector('my-card').shadowRoot.getElementById('header1').innerHTML == 'Team Fortress 2 Pyroland')
+    document.querySelector('my-card').shadowRoot.getElementById('header1').innerHTML = 'Sussy amogus';
+  else
+    document.querySelector('my-card').shadowRoot.getElementById('header1').innerHTML = 'Team Fortress 2 Pyroland';
+};
+
+//Delete button
+document.querySelector('#Delete').addEventListener('click', function() {
+  const list1 = [];
+  var onetime = false;
+  document.querySelectorAll('.card').forEach((item, index) => {
+    list1.push(index);
+    if (list1.length != 1 && onetime === false) {
+      item.remove();
+      onetime = true;
+    }
+  });
+});
+  </script>
+<!-----------------------------------JS-CUTOFF-------------------------------------------------------------------------------------------->
+
 </body>
 
 </html>
