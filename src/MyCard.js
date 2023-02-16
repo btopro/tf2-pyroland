@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
 export class MyCard extends LitElement {
   static properties = {
@@ -36,6 +37,7 @@ static get styles() {
   text-align: center;
   border-radius: 20px;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 /*BELOW IS ALL ORIGINAL CARD SPACE*/
@@ -108,6 +110,7 @@ static get styles() {
 //--------------------------------------------HTML-RENDER-START---------------------------------------------------------------------------------
   render() {
     return html`
+
 <div class='wrapper'>
 <!-- Allen's buttons-->
 <!-- Allen's Card-->
