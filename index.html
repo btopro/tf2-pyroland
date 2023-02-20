@@ -54,14 +54,12 @@
   <title>my-card</title>
 </head>
 
-<meme-maker alt="Cat stalking a small toy" image-url="https://cdn2.thecatapi.com/images/9j5.jpg" top-text="I bring you" bottom-text="the death">
-</meme-maker>
 <body>
   <div class="topbuttons">
     <button class="Duplicate">New duplicate</button>
-    <button id="Color">Toggle color</button>
-    <button id="Header">Change heading</button>
-    <button id="Delete">Delete 1 card</button>
+    <button class="Color">Toggle color</button>
+    <button class="Header">Change heading</button>
+    <button class="Delete">Delete 1 card</button>
   </div>
   <my-card></my-card>
 
@@ -75,7 +73,7 @@ document.querySelector('.Duplicate').addEventListener('click', function() {
 });
 
 //Color toggle button
-document.querySelector('#Color').addEventListener('click', function() {
+document.querySelector('.Color').addEventListener('click', function() {
 if (document.querySelector('my-card').shadowRoot.getElementById("card1").className == "card")
   document.querySelector('my-card').shadowRoot.getElementById("card1").className = "alt";
 else
@@ -83,15 +81,15 @@ else
 });
 
 //Header toggle button
-document.querySelector('#Header').onclick = function() {
-if (document.querySelector('my-card').shadowRoot.getElementById('header1').innerHTML == 'Team Fortress 2 Pyroland')
-  document.querySelector('my-card').shadowRoot.getElementById('header1').innerHTML = 'Sussy amogus';
-else
-  document.querySelector('my-card').shadowRoot.getElementById('header1').innerHTML = 'Team Fortress 2 Pyroland';
-};
+document.querySelector('.Header').addEventListener('click', function(e) {
+  let name = prompt("Pick name");
+  if (name) {
+    document.querySelector('my-card').name = name;
+  }
+});
 
 //Delete button
-document.querySelector('#Delete').addEventListener('click', function() {
+document.querySelector('.Delete').addEventListener('click', function() {
 const list1 = [];
 var onetime = false;
 document.querySelectorAll('my-card').forEach((item, index) => {

@@ -1,12 +1,64 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker/meme-maker.js";
-
+//, import.meta.url
+let character = 'https://images.gamebanana.com/img/ss/mods/54f8f277e231a.webp';
+//https://images.gamebanana.com/img/ss/mods/54f8f277e231a.webp
 export class MyCard extends LitElement {
-  static properties = {
-    version: {},
-  };
+  static get properties() {
+    return {
+      name: {
+        type: String,
+        reflect: true
+      },
+      details: {
+        type: String,
+        reflect: true
+      },
+      paragraph1: {
+        type: String,
+        reflect: true
+      },
+      paragraph2: {
+        type: String,
+        reflect: true
+      }
+    }
+  }
+constructor() {
+  super();
+  this.version = 'STARTING';
+  this.top= "Mmmph";
+  this.name = "Team Fortress 2 Pyroland";
+  this.details = "Details";
+  this.paragraph1 = "This is a screenshot from a 3D rendered animation posted to Youtube by Valve Corporation to promote the video-game Team Fortress 2.";
+  this.paragraph2 = "The video is called 'Meet the Pyro'";
+}
+//--------------------------------------------HTML-RENDER-START---------------------------------------------------------------------------------
+render() {
+  return html`
 
-//--------------------------------------------CSS-START---------------------------------------------------------------------------------
+<div class='wrapper'>
+<!-- Allen's Card-->
+<div id="card1" class="card">
+  <p id="header1" class="header">${this.name}</p>
+  <details class="details">
+    <summary class="summary">${this.details}</summary>
+      <ul>
+        <slot><li>${this.paragraph1}</li></slot>
+        <li>${this.paragraph2}</li>
+    </ul>
+  </details>
+<!-- <img class="img" src=${character}> -->
+<meme-maker class="img" image-url="${character}" top-text="${this.top}"></meme-maker>
+</div>
+</div>
+<!-- End of Allen's card-->
+  `;
+  }
+
+//--------------------------------------------HTML-RENDER-END---------------------------------------------------------------------------------
+
+  //--------------------------------------------CSS-START---------------------------------------------------------------------------------
 static get styles() {
   return css`
 .details {
@@ -66,11 +118,13 @@ static get styles() {
 
 .img {
   width: 460px;
-  height: 250px;
+  height: 260px;
   border: 2px inset #94FEFB;
   padding: 8px;
   background-color: #ff66cc;
   border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -102,32 +156,5 @@ static get styles() {
 }
 //--------------------------------------------CSS-END---------------------------------------------------------------------------------
 
-  constructor() {
-    super();
-    this.version = 'STARTING';
-  }
 
-//--------------------------------------------HTML-RENDER-START---------------------------------------------------------------------------------
-  render() {
-    return html`
-
-<div class='wrapper'>
-<!-- Allen's buttons-->
-<!-- Allen's Card-->
-  <div id="card1" class="card">
-    <p id="header1" class="header">Team Fortress 2 Pyroland</p>
-    <details class="details">
-      <summary class="summary">Details</summary>
-        <ul>
-          <li>This is a screenshot from a 3D rendered animation posted to Youtube by Valve Corporation to promote the video-game Team Fortress 2.</li>
-          <li>The video is called "Meet the Pyro"</li>
-      </ul>
-    </details>
-  <img class="img" src="https://images.gamebanana.com/img/ss/mods/54f8f277e231a.webp" alt="">
-  </div>
-</div>
-<!-- End of Allen's card-->
-    `;
-  }
 }
-//--------------------------------------------HTML-RENDER-END---------------------------------------------------------------------------------
