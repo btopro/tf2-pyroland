@@ -6,39 +6,28 @@ let character = 'https://images.gamebanana.com/img/ss/mods/54f8f277e231a.webp';
 export class MyCard extends LitElement {
   static get properties() {
     return {
-      shadowstatus: {
-        type: Boolean,
-        reflect: true
-      },
-      top: {
-        type: String,
-        reflect: true
-      },
-      name: {
-        type: String,
-        reflect: true
-      },
-      details: {
-        type: String,
-        reflect: true
-      },
-      paragraph1: {
-        type: String,
-        reflect: true
-      },
-      paragraph2: {
-        type: String,
-        reflect: true
-      }
+      opened: {type: Boolean, reflect: true},
+      shadowstatus: {type: Boolean, reflect: true},
+      top: {type: String, reflect: true},
+      name: {type: String, reflect: true},
+      details: {type: String, reflect: true},
+      paragraph1: {type: String, reflect: true},
+      paragraph2: {type: String, reflect: true},
     }
   }
 constructor() {
   super();
+  this.opened = false;
   this.top= "Mmmph";
   this.name = "Team Fortress 2 Pyroland";
   this.details = "Details";
-  this.paragraph1 = "This is a screenshot from a 3D rendered animation posted to Youtube by Valve Corporation to promote the video-game Team Fortress 2.";
-  this.paragraph2 = "The video is called 'Meet the Pyro'";
+  this.paragraph1 = "This is a screenshot from a 3D rendered animation posted to Youtube by Valve Corporation to promote the video-game Team Fortress 2. The video is called 'Meet the Pyro'";
+}
+
+ToggleEvent(e) {
+  this.opened = !this.opened;
+  console.log(this.opened);
+  
 }
 //--------------------------------------------HTML-RENDER-START---------------------------------------------------------------------------------
 render() {
@@ -47,16 +36,15 @@ render() {
 <div class='wrapper'>
 <!-- Allen's Card-->
 <div id="card1" class="card">
-  <slot name='header'><p id="header1" class="header">${this.name}</p></slot>
-  <details class="details">
-    <slot name='details'><summary class="summary">${this.details}</summary></slot>
+  <p id="header1" class="header">${this.name}</p>
+  <details class="details" .open="${this.opened}" @toggle="${this.ToggleEvent}">
+    <summary class="summary">${this.details}</summary>
       <ul>
-        <slot name='p1'><li>${this.paragraph1}</li></slot>
-        <slot name='p2'><li>${this.paragraph2}</li></slot>
-    </ul>
+        <li><slot></slot></li>
+      </ul>
   </details>
 <!-- <img class="img" src=${character}> -->
-<slot name='image'><meme-maker class="img" image-url="${character}" top-text="${this.top}"></meme-maker></slot>
+<meme-maker class="img" image-url="${character}" top-text="${this.top}"></meme-maker>
 </div>
 </div>
 <!-- End of Allen's card-->
