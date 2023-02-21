@@ -25,9 +25,8 @@ constructor() {
 }
 
 ToggleEvent(e) {
-  this.opened = !this.opened;
-  console.log(this.opened);
-  
+  const state = this.shadowRoot.querySelector('details').getAttribute('open') === '' ? true: false;
+  this.opened = state;
 }
 //--------------------------------------------HTML-RENDER-START---------------------------------------------------------------------------------
 render() {
