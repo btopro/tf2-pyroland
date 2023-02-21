@@ -6,6 +6,14 @@ let character = 'https://images.gamebanana.com/img/ss/mods/54f8f277e231a.webp';
 export class MyCard extends LitElement {
   static get properties() {
     return {
+      shadowstatus: {
+        type: Boolean,
+        reflect: true
+      },
+      top: {
+        type: String,
+        reflect: true
+      },
       name: {
         type: String,
         reflect: true
@@ -26,7 +34,6 @@ export class MyCard extends LitElement {
   }
 constructor() {
   super();
-  this.version = 'STARTING';
   this.top= "Mmmph";
   this.name = "Team Fortress 2 Pyroland";
   this.details = "Details";
@@ -40,16 +47,16 @@ render() {
 <div class='wrapper'>
 <!-- Allen's Card-->
 <div id="card1" class="card">
-  <p id="header1" class="header">${this.name}</p>
+  <slot name='header'><p id="header1" class="header">${this.name}</p></slot>
   <details class="details">
-    <summary class="summary">${this.details}</summary>
+    <slot name='details'><summary class="summary">${this.details}</summary></slot>
       <ul>
-        <slot><li>${this.paragraph1}</li></slot>
-        <li>${this.paragraph2}</li>
+        <slot name='p1'><li>${this.paragraph1}</li></slot>
+        <slot name='p2'><li>${this.paragraph2}</li></slot>
     </ul>
   </details>
 <!-- <img class="img" src=${character}> -->
-<meme-maker class="img" image-url="${character}" top-text="${this.top}"></meme-maker>
+<slot name='image'><meme-maker class="img" image-url="${character}" top-text="${this.top}"></meme-maker></slot>
 </div>
 </div>
 <!-- End of Allen's card-->
@@ -127,7 +134,15 @@ static get styles() {
   margin-right: auto;
 }
 
-
+    .summary:hover,
+    .summary:focus {
+      color: hotpink;
+      background-color: #94FEFB;
+}
+    .summary:active {
+      color: #94FEFB;
+      background-color: #ec72fc
+}
 
 @media screen and (max-width: 800px) and (min-width: 500px) {
   .details {
